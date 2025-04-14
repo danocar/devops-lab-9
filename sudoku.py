@@ -28,9 +28,10 @@ def solve(board):
 def solve_sudoku(board):
     import copy
 
-    # Validate that the input is a 9x9 2D list of integers
+    # Input validation BEFORE anything else
     if not isinstance(board, list) or len(board) != 9:
         raise TypeError("Input must be a 9x9 2D list of integers.")
+
     for row in board:
         if not isinstance(row, list) or len(row) != 9:
             raise TypeError("Each row must be a list of 9 integers.")
@@ -43,5 +44,4 @@ def solve_sudoku(board):
         return board_copy
     else:
         return None
-
 
