@@ -27,8 +27,12 @@ def solve(board):
 
 def solve_sudoku(board):
     import copy
+    if not isinstance(board, list) or not all(isinstance(row, list) for row in board):
+        raise TypeError("Input must be a 2D list representing the board")
+
     board_copy = copy.deepcopy(board)
     if solve(board_copy):
         return board_copy
     else:
         return None
+
