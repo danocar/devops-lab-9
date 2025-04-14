@@ -25,10 +25,11 @@ def solve(board):
                 return False
     return True
 
+
 def solve_sudoku(board):
     import copy
 
-    # Input validation BEFORE anything else
+    # Input validation BEFORE solve() is called
     if not isinstance(board, list) or len(board) != 9:
         raise TypeError("Input must be a 9x9 2D list of integers.")
 
@@ -44,4 +45,6 @@ def solve_sudoku(board):
         return board_copy
     else:
         return None
+
+
 
