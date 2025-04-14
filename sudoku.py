@@ -27,12 +27,21 @@ def solve(board):
 
 def solve_sudoku(board):
     import copy
-    if not isinstance(board, list) or not all(isinstance(row, list) for row in board):
-        raise TypeError("Input must be a 2D list representing the board")
+
+    # Validate that the input is a 9x9 2D list of integers
+    if not isinstance(board, list) or len(board) != 9:
+        raise TypeError("Input must be a 9x9 2D list of integers.")
+    for row in board:
+        if not isinstance(row, list) or len(row) != 9:
+            raise TypeError("Each row must be a list of 9 integers.")
+        for cell in row:
+            if not isinstance(cell, int):
+                raise TypeError("Each cell must be an integer.")
 
     board_copy = copy.deepcopy(board)
     if solve(board_copy):
         return board_copy
     else:
         return None
+
 
